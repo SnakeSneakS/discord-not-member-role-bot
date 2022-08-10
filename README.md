@@ -1,5 +1,6 @@
 # discord-not-member-role-bot
 - list-up and add role to "not-member" who doesn't have MEMBER_ROLES. 
+- 名前が悪すぎるけど、DiscordでMEMBER_ROLES(ロール1、ロール2、ロール3、…)のいずれも持っていないユーザーを列挙してロール「NOT_MEMBER_ROLE」を付与するだけの簡単なbotです
 
 1. access [here](https://discord.com/developers/applications) and create bot. 
 2. create & fill in .env file. Please refer to .env.template file.
