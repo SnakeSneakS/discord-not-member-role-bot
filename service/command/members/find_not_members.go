@@ -10,7 +10,7 @@ import (
 )
 
 func FindNotMembers(s *discordgo.Session, i *discordgo.InteractionCreate) ([]*discordgo.Member, error) {
-	g, err := s.State.Guild(i.GuildID)
+	members, err := s.GuildMembers(i.GuildID, "", 1000)
 	if err != nil {
 		log.Printf("error: %v", err)
 		return []*discordgo.Member{}, err
@@ -22,7 +22,7 @@ func FindNotMembers(s *discordgo.Session, i *discordgo.InteractionCreate) ([]*di
 
 	not_member_members := make([]*discordgo.Member, 0)
 
-	for _, m := range g.Members {
+	for _, m := range members {
 		c := core.CountSameString(m.Roles, member_roles)
 		if c == 0 {
 			not_member_members = append(not_member_members, m)
